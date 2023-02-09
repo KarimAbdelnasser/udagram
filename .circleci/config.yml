@@ -38,10 +38,10 @@ jobs:
           command: |
             npm run api:install
       #set env
-      - run:
-          name: set env
-          command: |
-            npm run setenv
+      # - run:
+      #     name: set env
+      #     command: |
+      #       npm run setenv
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint
