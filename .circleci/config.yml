@@ -12,11 +12,11 @@ jobs:
       - image: "cimg/node:14.15"
     steps:
       # install node and checkout code
-      - checkout
       - node/install:
           node-version: '14.15'  
       - eb/setup
       - aws-cli/setup
+      - checkout
       - run:
       name: Set AWS environment variables
       command: |
