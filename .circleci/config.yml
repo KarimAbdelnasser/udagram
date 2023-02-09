@@ -12,17 +12,11 @@ jobs:
       - image: "cimg/node:14.15"
     steps:
       # install node and checkout code
+      - checkout
       - node/install:
           node-version: '14.15'  
       - eb/setup
       - aws-cli/setup
-      - checkout
-      # - run:
-      #     name: Set AWS environment variables
-      #     command: |
-      #       echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-      #       echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
-      #       echo "AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN"
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
