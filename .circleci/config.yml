@@ -32,7 +32,7 @@ jobs:
           command: |
             npm run api:install
       #set env
-      -run:
+      - run:
           name: set env
           command: |
             npm run setenv
