@@ -17,12 +17,6 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
-      - run:
-          name: Set AWS environment variables
-          command: |
-            echo "AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID"
-            echo "AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY"
-            echo "AWS_SESSION_TOKEN=$AWS_SESSION_TOKEN"
       # Use root level package.json to install dependencies in the frontend app
       - run:
           name: Install Front-End Dependencies
@@ -37,11 +31,6 @@ jobs:
           name: Install API Dependencies
           command: |
             npm run api:install
-      #set env
-      - run:
-          name: set token
-          command: |
-            npm run setToken
       # TODO: Lint the frontend
       - run:
           name: Front-End Lint

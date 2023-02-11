@@ -14,8 +14,7 @@
     "clean": "rm -rf www/ || true",
     "deploy": "npm run build && eb list && eb use udagram-api-dev && eb deploy",
     "build": "npm install . &&eb init udagram-api --platform node.js --region us-east-1  && npm run clean && tsc && cp -rf src/config www/config && cp -R .elasticbeanstalk www/.elasticbeanstalk && cp .npmrc www/.npmrc && cp package.json www/package.json && cd www && zip -r Archive.zip . && cd ..",
-    "setenv":"eb init udagram-api --region us-east-1  && chmod +x bin/setenv.sh && bin/setenv.sh",
-    "setToken":"aws configure set aws_session_token 'FwoGZXIvYXdzEBAaDGdLxAb+D97UC1RYlyLVAUg/d0K8KK6ewycM8W7T/0lLqDwM1lR9KPymexOdRJC8l9o1fGfFr7WGxqnWNoWqLqoJhqA3DfAsKtsDudYTzDhjPL3O9TykvhNDrZXBImMDeIBNzsVa0q5KCZdizOOQ60PhRldhia94Cb04WKwtzyrLTygW4iXeHerS2g4fI8NOoUnu4JHf1ZOy0jpHOpWh1shCp2979o6dbc3iIRhcPvudRpwV6u4/YpZ3DvrBpchVp+mDNzIya4LkWtwokW2ToNmvymWMrm5uPzHPnM8/qz7Tu52CdCjwtJKfBjItA6N7PBpwvAPhpHndcZxCmnmklKVGdaC2VK508ppqZIogqN4ZMABd9H6HMrZL'"
+    "setenv":"eb init udagram-api --region us-east-1  && chmod +x bin/setenv.sh && bin/setenv.sh"
   },
   "keywords": [],
   "author": "Karim",

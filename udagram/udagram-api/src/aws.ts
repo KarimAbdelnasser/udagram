@@ -1,12 +1,6 @@
 import AWS = require("aws-sdk");
 import { config } from "./config/config";
 
-AWS.config.update({
-  accessKeyId:config.aws_access_key,
-  secretAccessKey:config.aws_secret_access_key,
-  sessionToken:config.aws_session_token,
-})
-
 //Credentials are auto set according to the documentation https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-credentials-node.html and the default profile is "Default anyway"
 
 export const s3 = new AWS.S3({
