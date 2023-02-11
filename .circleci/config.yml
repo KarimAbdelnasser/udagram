@@ -69,7 +69,7 @@ jobs:
       - run:
           name: Initialize Elastic Beanstalk
           command: |
-            eb init --profile eb-cli
+            eb init --profile eb-cli --region us-east-1
 
       - run:
           name: Deploy App
