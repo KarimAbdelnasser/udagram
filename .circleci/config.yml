@@ -14,8 +14,7 @@ jobs:
       AWS_PROFILE: eb-cli
     steps:
       # install node and checkout code
-      - node/install:
-          node-version: '14.15'  
+      - node/install 
       - eb/setup
       - aws-cli/setup
       - checkout
@@ -38,6 +37,11 @@ jobs:
           name: Front-End Lint
           command: |
             npm run frontend:lint
+      # Set env
+      - run:
+          name: Set env
+          command: |
+            npm run setenv
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
