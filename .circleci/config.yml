@@ -52,6 +52,9 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
+    environment:
+      AWS_ACCESS_KEY_ID: ${AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY: ${AWS_SECRET_ACCESS_KEY}
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
@@ -59,7 +62,7 @@ jobs:
       - eb/setup
       - aws-cli/setup
       - checkout
-
+            
       - run:
           name: Configure AWS CLI
           command: |
@@ -68,11 +71,12 @@ jobs:
             echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
             echo "region = us-east-1" >> ~/.aws/config
 
-      # - run:
-      #     name: Initialize Elastic Beanstalk
-      #     command: |
-      #       eb init --profile eb-cli --region us-east-1
-
+      - run:
+          name: Configure AWS CLI
+          command: |
+            aws configure set --profile eb-cli aws_access_key_id $AWS_ACCESS_KEY_ID
+            aws configure set --profile eb-cli aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+            aws configure set --profile eb-cli default.region us-west-2
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps -
