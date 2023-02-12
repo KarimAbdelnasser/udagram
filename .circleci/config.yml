@@ -52,8 +52,6 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
-    environment:
-      AWS_PROFILE: eb-cli
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
@@ -70,10 +68,10 @@ jobs:
             echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
             echo "region = us-east-1" >> ~/.aws/config
 
-      - run:
-          name: Initialize Elastic Beanstalk
-          command: |
-            eb init --profile eb-cli --region us-east-1
+      # - run:
+      #     name: Initialize Elastic Beanstalk
+      #     command: |
+      #       eb init --profile eb-cli --region us-east-1
 
       - run:
           name: Deploy App
