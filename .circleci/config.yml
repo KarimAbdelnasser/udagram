@@ -37,11 +37,6 @@ jobs:
           name: Front-End Lint
           command: |
             npm run frontend:lint
-      # Set env
-      - run:
-          name: Set env
-          command: |
-            npm run setenv
       # TODO: Build the frontend app
       - run:
           name: Front-End Build
