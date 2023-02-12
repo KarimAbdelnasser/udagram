@@ -10,6 +10,8 @@ jobs:
     docker:
       # the base image can run most needed actions with orbs
       - image: "cimg/node:14.15"
+    environment:
+      AWS_PROFILE: eb-cli
     steps:
       # install node and checkout code
       - node/install:
@@ -50,6 +52,8 @@ jobs:
   deploy:
     docker:
       - image: "cimg/base:stable"
+    environment:
+      AWS_PROFILE: eb-cli
       # more setup needed for aws, node, elastic beanstalk
     steps:
       - node/install:
