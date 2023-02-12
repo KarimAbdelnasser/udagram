@@ -4,11 +4,11 @@ This documentation outlines the steps involved in the CircleCI pipeline process 
 ## Building Stage
 The building stage is responsible for installing dependencies, checking out code, and building the frontend and backend components of the project.
 
--The base image "cimg/node:14.15" is used for the build job.
+-This image "cimg/node:14.15" is used for the build job.
 
 -The AWS CLI and Elastic Beanstalk orbs are included in the pipeline for setup.
 
--Node and its dependencies are installed using the node/install step.
+-Node (14.15) and its dependencies are installed using the node/install step.
 
 -The code is checked out using the checkout step.
 
@@ -35,17 +35,17 @@ npm run api:build
 ## Deploying Stage
 The deploying stage is responsible for deploying the built components to AWS Elastic Beanstalk.
 
--The base image "cimg/base:stable" is used for the deploy job.
+-This image "cimg/base:stable" is used for the deploy job.
 
 -The AWS CLI and Elastic Beanstalk orbs are included in the pipeline for setup.
 
--Node and its dependencies are installed using the node/install step.
+-Node (16.2.0) and its dependencies are installed using the node/install step.
 
 -The code is checked out using the checkout step.
 
 -The AWS CLI is configured using environment variables for access key and secret key.
 
--The deployment is triggered using this command.
+-The deployment start using this command.
 ```bash
 npm run deploy
 ```
@@ -54,4 +54,4 @@ The CircleCI pipeline is defined using the workflows section. The workflow in th
 
 -The build job is run first.
 
--The deploy job is run after the build job and manual approval.
+-The deploy job is run after the build job.
