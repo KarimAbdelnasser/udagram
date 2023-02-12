@@ -69,15 +69,16 @@ jobs:
             echo "[eb-cli]" >> ~/.aws/config
             echo "aws_access_key_id = $AWS_ACCESS_KEY_ID" >> ~/.aws/config
             echo "aws_secret_access_key = $AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
+            echo "aws_session_token = "
             echo "region = us-east-1" >> ~/.aws/config
 
-      - run:
-          name: Configure AWS CLI
-          command: |
-            aws configure set --profile eb-cli aws_access_key_id $AWS_ACCESS_KEY_ID
-            aws configure set --profile eb-cli aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-            aws configure set --profile eb-cli aws_session_token ""
-            aws configure set --profile eb-cli default.region us-east-1
+      # - run:
+      #     name: Configure AWS CLI
+      #     command: |
+      #       aws configure set --profile eb-cli aws_access_key_id $AWS_ACCESS_KEY_ID
+      #       aws configure set --profile eb-cli aws_secret_access_key $AWS_SECRET_ACCESS_KEY
+      #       aws configure set --profile eb-cli aws_session_token ""
+      #       aws configure set --profile eb-cli default.region us-east-1
       - run:
           name: Deploy App
           # TODO: Install, build, deploy in both apps -
