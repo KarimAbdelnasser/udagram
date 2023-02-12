@@ -17,6 +17,3 @@ global:
   repository: null
   sc: null
   workspace_type: Application
-  aws:
-    s3:
-      bucket: udagram03211230
