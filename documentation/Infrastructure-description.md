@@ -9,7 +9,10 @@ For hosting the frontend of our application, we use the Amazon Simple Storage Se
 ## Relational Database Service(RDS)
 We use AWS RDS Postgres as our database solution for storing and retrieving information.
 
-[RDS Endpoint](database-1.ckh6tos1nndf.us-east-1.rds.amazonaws.com)
+-RDS Endpoint:
+```bash
+database-1.ckh6tos1nndf.us-east-1.rds.amazonaws.com
+```
 
 ## Elastic Beanstalk(EB)
 The backend server is deployed on AWS Elastic Beanstalk service.
